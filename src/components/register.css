@@ -1,0 +1,78 @@
+#signup_sec{
+    width:500px;
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2.5%;
+    background-color: white;
+    background-image: url(https://mdbootstrap.com/img/Photos/Others/sidenav4.jpg);
+    border-color:1px solid black;
+    border-radius: 5px;
+    box-shadow:0px 0px 8px 0px rgba(0, 0, 0, 0.5);
+}
+#google{
+    color: red;
+    background-color: white;
+    padding: 8px;
+    margin: 5px;
+    font-size: 125%;
+    border-radius: 100%;
+    box-shadow:0px 0px 8px 0px rgba(0, 0, 0, 0.5)
+}
+#google:hover{
+    cursor: pointer;
+    color: white;
+    background-color: red;
+}
+#linkedIn{
+    color: #0277bd;
+    background-color: white;
+    padding: 8px 8px 8px 9px;
+    margin: 5px;
+    font-size: 125%;
+    border-radius: 100%;
+    box-shadow:0px 0px 8px 0px rgba(0, 0, 0, 0.5)
+}
+#linkedIn:hover{
+    cursor: pointer;
+    color: white;
+    background-color: #0277bd;
+}
+#facebook{
+    color:#01579b;
+    background-color: white;
+    padding: 8px;
+    margin: 5px;
+    font-size: 125%;
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    box-shadow:0px 0px 8px 0px rgba(0, 0, 0, 0.5)
+}
+#facebook:hover{
+    cursor: pointer;
+    color: white;
+    background-color: #01579b;
+}
+#eye{
+    margin-left: -30px;
+    margin-top: 10PX;
+    z-index: 1;
+}
+#eye:hover{
+    cursor: pointer;
+    color: #FF6B57;
+}
+
+#password,#username,#mobile_num{
+    background: transparent;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-color: gray;
+}
+#login_link{
+    padding-bottom: 13px;
+}
+#basic-addon{
+    border-color: gray;
+}

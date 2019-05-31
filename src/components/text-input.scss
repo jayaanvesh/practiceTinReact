@@ -1,0 +1,31 @@
+@import "src/shared/base-styles";
+@import '../base-styles.scss';
+
+$height: 48px;
+$height-title: 64px;
+
+.TextInput {
+  &--form-component {
+    @extend %form-component;
+  }
+
+  &--textarea {
+    resize: none;
+    height: auto;
+  }
+
+  &:not(&--form-component) {
+    border: 0;
+  }
+
+  outline: none;
+  width: 100%;
+  padding: 16.5px 20px;
+
+  caret-color: $error-color;
+
+  &::placeholder {
+    color: $gray-0;
+  }
+}
+

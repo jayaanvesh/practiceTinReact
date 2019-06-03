@@ -1,28 +1,36 @@
 import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from "mdbreact";
 import details from "./abc";
 
 const SellerProduct = () => {
-  // return details.products.map((data) => {
-    return (
-              <div  className="card" style={{display:"inline-block", margin:"5px"}}>
-                {
-                  details.products.map((data)=>{
-                    return (
-                    <div>
-                      <p>{data.product}</p>
-                      <p style={{color:"orange"}}><b><MDBIcon icon="rupee-sign" />  {data.price}</b></p>
-                      <p>{data.offers} & Get a cleaner free</p>
-                      <div style={{textAlign:"center"}}>
-                        <button color="white" style={{borderRadius:"5px"}}>Select</button>
-                      </div>
-                    </div>
-                    ) 
-                  })
-                }
-              </div>
-    )
-  // })
-}
+  return (
+    <MDBCol>
+      <div
+        className="card"
+        style={{ display: "inline-block", height: "175px", overflow: "auto" }}
+      >
+        {details.products.map(data => (
+          <div
+            key={data.id}
+            style={{ display: "inline-block", margin: "10px" }}
+          >
+            <p>{data.product}</p>
+            <p style={{ color: "orange" }}>
+              <b>
+                <MDBIcon icon="rupee-sign" /> {data.price}
+              </b>
+            </p>
+            <p>{data.offers} & Get a cleaner free</p>
+            <div style={{ textAlign: "center" }}>
+              <MDBBtn color="white" style={{ borderRadius: "5px" }}>
+                Try
+              </MDBBtn>
+            </div>
+          </div>
+        ))}
+      </div>
+    </MDBCol>
+  );
+};
 
 export default SellerProduct;

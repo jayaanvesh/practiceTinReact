@@ -1,107 +1,124 @@
 import React, { Component } from "react";
-import { MDBCol, MDBBtn, MDBContainer, MDBRow } from 'mdbreact'
+import { MDBCol, MDBBtn, MDBContainer, MDBRow, MDBIcon } from "mdbreact";
+import SellerProduct from "./sellerproduct";
 
 class SellerList extends Component {
-  constructor(){
+  constructor() {
     super();
-    this.state={
-      isLoaded:false,
-      data:[]
-    }
+    this.state = {
+      isLoaded: false,
+      data: []
+    };
   }
-  componentDidMount(){
+  componentDidMount() {
     fetch("http://localhost:8000/sellerlist")
-    .then(res => res.json())
-    .then( result => {
+      .then(res => res.json())
+      .then(result => {
         this.setState({
           isLoaded: true,
           data: result
         });
-    }
-  )
-}
-
-render(){
-  var { isLoaded, data } = this.state;
-   if(!isLoaded){
-    return <div>Please wait while Loding...</div>
+      });
   }
-  else {
-  //   return (
-  //    <div>
-  //       {
-  //         data.map(details => (
-  //           <p>name:{details.name}</p>  
-  //         ))
-  //       }
-  //    </div>
-  //   )
-  // }
-  return (
-    <MDBContainer>
-      <MDBRow>
-        <MDBCol md="2" xs="12" ></MDBCol>
-        <MDBCol md="8" xs="12">
+
+  render() {
+    var { isLoaded, data } = this.state;
+    if (!isLoaded) {
+      return <div>Please wait while Loding...</div>;
+    } else {
+      return (
+        <MDBContainer>
           <MDBRow>
-            <h3 style={{fontWeight:450}}>Seller List</h3>
-            <div style={{marginLeft:"auto"}}>
-                <p style={{fontWeight:450,display:"inline-block", marginTop:"10px"}}>Filter by</p> &ensp;
-                <select className="browser-default custom-select" style={{width:"max-content", height:"34px"}}>
+            <MDBCol md="2" xs="12" />
+            <MDBCol md="8" xs="12">
+              <MDBRow style={{ marginTop: "30px" }}>
+                <h3 style={{ fontWeight: 450 }}>Seller List</h3>
+                <div style={{ marginLeft: "auto" }}>
+                  <p
+                    style={{
+                      fontWeight: 450,
+                      display: "inline-block",
+                      marginTop: "10px"
+                    }}
+                  >
+                    Filter by
+                  </p>{" "}
+                  &ensp;
+                  <select
+                    className="browser-default custom-select"
+                    style={{ width: "max-content", height: "34px" }}
+                  >
                     <option value="1">All</option>
                     <option value="2">Area</option>
                     <option value="3">City</option>
                     <option value="3">District</option>
                     <option value="3">State</option>
-                </select>
-            </div>
-            <div style={{marginLeft:"auto"}}>
-                <p style={{fontWeight:450,display:"inline-block", marginTop:"10px"}}>Sort By</p> &ensp;
-                <select className="browser-default custom-select" style={{width:"max-content", height:"34px"}}>
+                  </select>
+                </div>
+                <div style={{ marginLeft: "auto" }}>
+                  <p
+                    style={{
+                      fontWeight: 450,
+                      display: "inline-block",
+                      marginTop: "10px"
+                    }}
+                  >
+                    Sort By
+                  </p>{" "}
+                  &ensp;
+                  <select
+                    className="browser-default custom-select"
+                    style={{ width: "max-content", height: "34px" }}
+                  >
                     <option value="1">Price: High to Low</option>
                     <option value="2">Price: Low to High</option>
-                </select>
-            </div>
-            <div>
-              {
-              data.map(details =>
-                <div className="card" style={{marginBottom:"10px"}}>
-                  <div className="margin"> 
-                    <MDBRow>
-                      <MDBCol lg="5">
-                          <small className="gray">Name</small>
-                          <p>{details.name}</p>
+                  </select>
+                </div>
+                {data.map(details => (
+                  <div
+                    key={details._id}
+                    className="card"
+                    style={{ marginBottom: "15px" }}
+                  >
+                    <MDBRow style={{ padding: "20px" }}>
+                      <MDBCol>
+                        <small style={{ color: "grey" }}>Name</small>
+                        <p>{details.name}</p>
                       </MDBCol>
-                      <MDBCol lg="7">
-                          <small className="gray">Address</small>
-                          <p>{details.area},{details.city},</p>
-                          <p>{details.district},{details.state}</p>
+                      <MDBCol>
+                        <small style={{ color: "grey" }}>Offers</small>
+                        <p>3 Offers</p>
+                      </MDBCol>
+                      <MDBCol>
+                        <small style={{ color: "grey" }}>Address</small>
+                        <p>
+                          {details.area}, {details.city},
+                        </p>
+                        <p>
+                          {details.district},{details.state}
+                        </p>
                       </MDBCol>
                     </MDBRow>
-                    <MDBRow >
-                      <div className="mx-auto d-block">
-                          <p/>
-                          <small className="gray" style={{display:"inline-block"}}>
-                            *Seller has alternative products for you. &nbsp;&nbsp;&nbsp;
-                            <p style={{display:"inline-block", color:"#1e88e5",fontSize:"110%"}}>Show Alternatives</p>
-                          </small>
-                      </div>
-                    </MDBRow>
+                    <SellerProduct />
+                    <div style={{ textAlign: "center" }}>
+                      <MDBBtn
+                        color="orange"
+                        className="morpheus-den-gradient"
+                        style={{ borderRadius: "5px" }}
+                      >
+                        Choose
+                      </MDBBtn>
+                    </div>
                   </div>
-                </div>
-              )
-              }
-                <div className="text-center" style={{marginTop:"5px", marginBottom:"30px"}}>
-                  <MDBBtn color="orange" style={{borderRadius:"5px"}}>Accept Bid</MDBBtn>
-                </div>
-            </div>
-            </MDBRow>
+                ))}
+              </MDBRow>
             </MDBCol>
-            <MDBCol md="2" xs="12" ></MDBCol>
+            <MDBCol md="2" xs="12" />
           </MDBRow>
         </MDBContainer>
-  )
+      );
+    }
+  }
 }
-}
-};
 
 export default SellerList;

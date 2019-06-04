@@ -1,0 +1,11 @@
+.p {
+  padding: 0;
+  margin: 10px;
+}
+.button {
+  padding: 5px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}

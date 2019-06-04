@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MDBCol, MDBBtn, MDBContainer, MDBRow, MDBIcon } from "mdbreact";
+import { MDBCol, MDBBtn, MDBContainer, MDBRow } from "mdbreact";
 import SellerProduct from "./sellerproduct";
 
 class SellerList extends Component {

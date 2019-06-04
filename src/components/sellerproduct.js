@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from "mdbreact";
+import { MDBCol, MDBIcon, MDBBtn } from "mdbreact";
 import details from "./abc";
 
 const SellerProduct = () => {

@@ -10,12 +10,16 @@ import Address from "./components/address/address";
 import TabContainer from "./components/TabsPage";
 import TextInput from "./components/input";
 import FormControl from "./components/FormControl";
+import { Collapse } from "./components/collapse";
+import { Collapse2 } from "./components/collapse2";
 
 function App() {
   return (
     <div className="App">
       {/* <FormControl /> */}
-      <TextInput />
+      {/* <TextInput /> */}
+      {/* <Collapse /> */}
+      <Collapse2 />
       {/* <TabContainer />
       <Register />
       <Login />
